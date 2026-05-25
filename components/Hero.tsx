@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { TrainFront, Plus } from "lucide-react";
+import { TrainFront } from "lucide-react";
 
-export default function Hero() {
-  // Увеличим время, чтобы движение было величественным
+// Добавляем пропс onSecretClick, чтобы связать с главным файлом
+export default function Hero({ onSecretClick }: { onSecretClick: () => void }) {
   const duration = 8; 
 
   return (
     <section id="hero" className="min-h-screen w-full flex overflow-hidden relative border-b-[16px] border-[#141414] bg-[#FFF4E4]">
       
-      {/* 1. ЛЕВАЯ ПОЛОСА — Фиксированная ширина 100px (как на всем сайте) */}
+      {/* 1. ЛЕВАЯ ПОЛОСА */}
       <div className="w-20 lg:w-28 bg-[#68191E] flex items-center justify-center border-r-4 border-[#141414] relative z-20 shrink-0">
         <h2 className="rotate-180 text-[#FFF4E4] font-black text-4xl lg:text-5xl tracking-tighter [writing-mode:vertical-lr] uppercase italic">
           Эксперимент 1921 — 1928
@@ -39,11 +39,22 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* ПАСХАЛКА: СЕКРЕТНЫЙ ШТАМП */}
+        <motion.button
+          onClick={onSecretClick}
+          initial={{ opacity: 0.15, rotate: -15 }}
+          whileHover={{ opacity: 1, scale: 1.1, rotate: -10, transition: { duration: 0.2 } }}
+          className="absolute bottom-40 right-10 z-40 border-4 border-[#68191E] text-[#68191E] px-4 py-2 font-black uppercase text-2xl cursor-pointer select-none group"
+        >
+          Секретно
+          <div className="absolute inset-0 border-2 border-[#68191E] m-1 opacity-50 group-hover:animate-pulse" />
+        </motion.button>
+
         {/* 3. НИЖНЯЯ ПАНЕЛЬ: РЕЛЬСЫ И ПАРОВОЗ */}
         <div className="h-40 w-full relative px-10 lg:px-24 border-t-2 border-[#141414]/10 flex items-center">
           
           {/* Пути */}
-          <div className="absolute left-0 right-0 h-8 flex flex-col justify-between pointer-events-none opacity-40">
+          <div className="absolute left-0 right-0 h-8 flex flex-col justify-between pointer-events-none opacity-30">
              <div className="w-full h-[2px] bg-[#141414]" />
              <div className="w-full h-[2px] bg-[#141414]" />
              <div className="absolute inset-0 flex justify-around items-center">
@@ -53,7 +64,7 @@ export default function Hero() {
 
           <div className="relative w-full h-full flex items-center">
             
-            {/* ЦИТАТА (Открывается строго от 0 до 100) */}
+            {/* ЦИТАТА */}
             <motion.div 
               initial={{ clipPath: "inset(0 100% 0 0)" }} 
               animate={{ clipPath: "inset(0 0% 0 0)" }} 
@@ -66,13 +77,13 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* ПАРОВОЗ (Синхронизирован по координатам) */}
+            {/* ПАРОВОЗ */}
             <motion.div 
               initial={{ left: "0%" }} 
               animate={{ left: "100%" }} 
               transition={{ duration: duration, ease: "linear" }} 
               className="absolute z-30"
-              style={{ x: "-50%" }} // Центрируем паровоз относительно точки появления текста
+              style={{ x: "-50%" }} 
             >
                <motion.div 
                  animate={{ y: [0, -2, 0] }} 
@@ -80,17 +91,16 @@ export default function Hero() {
                  className="relative flex flex-col items-center"
                >
                  {/* Дым */}
-                 {[...Array(3)].map((_, i) => (
+                 {[...Array(4)].map((_, i) => (
                    <motion.div 
                      key={i} 
                      initial={{ opacity: 0 }} 
-                     animate={{ opacity: [0, 0.5, 0], scale: [1, 4], y: [-20, -80], x: [5, 20] }} 
-                     transition={{ repeat: Infinity, duration: 1.5, delay: i * 0.4 }} 
-                     className="absolute top-0 left-6 w-6 h-6 bg-gray-400/40 rounded-full blur-xl" 
+                     animate={{ opacity: [0, 0.4, 0], scale: [1, 4], y: [-20, -80], x: [10, 30] }} 
+                     transition={{ repeat: Infinity, duration: 1.5, delay: i * 0.3 }} 
+                     className="absolute top-0 left-6 w-8 h-8 bg-gray-400/40 rounded-full blur-xl" 
                    />
                  ))}
                  
-                 {/* Иконка */}
                  <TrainFront 
                     size={80} 
                     fill="#141414" 

@@ -42,7 +42,7 @@ export default function DocumentsArchive() {
               <FileDown size={50} className="group-hover:animate-bounce" />
               <div>
                 <span className="block font-black text-2xl uppercase tracking-tighter">Скачать .DOCX</span>
-                <span className="text-xs font-bold opacity-50 uppercase tracking-widest">Полная версия исследования (25 стр.)</span>
+                <span className="text-xs font-bold opacity-50 uppercase tracking-widest">Полная версия исследования </span>
               </div>
             </motion.a>
           </div>

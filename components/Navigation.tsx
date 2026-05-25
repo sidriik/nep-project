@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { Menu, X, ArrowRight, Bookmark, Quote } from "lucide-react";
+import { Menu, X, ArrowRight, Bookmark, Quote, Zap } from "lucide-react";
 
 const links = [
   { name: "Старт", id: "hero" },
@@ -112,18 +112,36 @@ export default function Navigation() {
               </nav>
 
               {/* ПРИКОЛЮХА: Блок с фактом */}
-              <div className="mt-8 bg-[#68191E]/20 border-2 border-[#68191E] p-6 relative">
-                 <Quote className="absolute -top-3 -left-3 text-[#68191E] bg-[#141414] rounded-full p-1" size={24} />
-                 <p className="text-[#FFF4E4] text-[11px] font-medium leading-relaxed italic">
-                   {randomFact}
-                 </p>
-                 <span className="block mt-3 text-[8px] font-black text-[#68191E] uppercase tracking-widest">Факт из архива</span>
-              </div>
+              <div className="mt-8 bg-[#68191E]/20 border-2 border-[#68191E] p-6 relative group">
+                <motion.button 
+                    whileTap={{ rotate: 180 }}
+                    onClick={() => setFact(facts[Math.floor(Math.random() * facts.length)])}
+                    className="absolute -top-4 -right-2 bg-[#68191E] text-white p-2 rounded-full shadow-lg hover:scale-110 transition-all"
+                    title="Узнать другой факт"
+                >
+                    <motion.div animate={{ rotate: isOpen ? 0 : 360 }}>
+                    <Zap size={14} fill="currentColor" />
+                    </motion.div>
+                </motion.button>
 
-              <div className="mt-10 pt-6 border-t border-white/10 flex justify-between items-center text-[9px] font-black text-white/30 uppercase">
-                <span>Ref: 1921-1928</span>
-                <span>Vol. 04</span>
-              </div>
+                <Quote className="absolute -top-3 -left-3 text-[#68191E] bg-[#141414] rounded-full p-1" size={24} />
+                
+                <AnimatePresence mode="wait">
+                    <motion.p 
+                    key={randomFact}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    className="text-[#FFF4E4] text-[11px] font-medium leading-relaxed italic"
+                    >
+                    {randomFact}
+                    </motion.p>
+                </AnimatePresence>
+                
+                <span className="block mt-3 text-[8px] font-black text-[#68191E] uppercase tracking-[0.3em]">
+                    Сводка из архива
+                </span>
+                </div>
             </motion.div>
           </>
         )}
