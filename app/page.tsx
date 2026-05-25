@@ -13,7 +13,7 @@ import FinanceSlide from "../components/FinanceSlide";
 import ScissorsSlide from "../components/ScissorsSlide";
 import ConclusionSlide from "../components/ConclusionSlide";
 import ConsequencesSlide from "../components/ConsequencesSlide";
-import DocumentsArchive from "../components/ArchiveFile";
+import DocumentsArchive from "../components/DocumentsArchive";
 import GallerySlide from "../components/GallerySlide";
 import EndSlide from "../components/EndSlide";
 import SecretQuiz from "../components/SecretQuiz";
@@ -21,34 +21,30 @@ import SecretQuiz from "../components/SecretQuiz";
 export default function Home() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
-  // Адаптивная анимация: на мобилках чуть меньше вылета по Y
-  const slideAnimation = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: false, amount: 0.1 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
+  // Мы убрали объект slideAnimation и пропишем настройки прямо в компоненты, 
+  // чтобы TypeScript не путался в типах.
 
   return (
     <ReactLenis root>
       <main className="bg-[#FFF4E4] font-sans selection:bg-[#68191E] selection:text-white">
+        
         <Navigation />
         
         <Hero onSecretClick={() => setIsQuizOpen(true)} />
         
-        {/* Оборачиваем в блоки с адаптивными отступами */}
         <div className="flex flex-col w-full">
-            <motion.div {...slideAnimation}><CrisisSlide /></motion.div>
-            <motion.div {...slideAnimation}><SecondSlide /></motion.div>
-            <motion.div {...slideAnimation}><ReformSlide /></motion.div>
-            <motion.div {...slideAnimation}><ArchivesTable /></motion.div>
-            <motion.div {...slideAnimation}><FinanceSlide /></motion.div>
-            <motion.div {...slideAnimation}><ScissorsSlide /></motion.div>
-            <motion.div {...slideAnimation}><ConclusionSlide /></motion.div>
-            <motion.div {...slideAnimation}><ConsequencesSlide /></motion.div>
-            <motion.div {...slideAnimation}><DocumentsArchive /></motion.div>
-            <motion.div {...slideAnimation}><GallerySlide /></motion.div>
-            <motion.div {...slideAnimation}><EndSlide /></motion.div>
+            {/* Анимация прописана напрямую для каждого слайда */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><CrisisSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><SecondSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><ReformSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><ArchivesTable /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><FinanceSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><ScissorsSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><ConclusionSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><ConsequencesSlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><DocumentsArchive /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><GallerySlide /></motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.8 }}><EndSlide /></motion.div>
         </div>
 
         <SecretQuiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
