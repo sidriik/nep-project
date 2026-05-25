@@ -33,7 +33,7 @@ export default function ReformSlide() {
   ];
 
   return (
-    <section ref={ref} className="min-h-screen w-full bg-[#FFF4E4] relative overflow-hidden flex border-b-[16px] border-[#141414]">
+    <section id = "reform" ref={ref} className="min-h-screen w-full bg-[#FFF4E4] relative overflow-hidden flex border-b-[16px] border-[#141414]">
       
       {/* 1. ЛЕВАЯ ПОЛОСА — Единый стандарт ширины */}
       <div className="w-20 lg:w-28 bg-[#141414] flex items-center justify-center border-r-4 border-[#68191E]/50 shrink-0 z-30">

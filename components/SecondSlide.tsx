@@ -8,7 +8,7 @@ export default function SecondSlide() {
   const isInView = useInView(ref, { once: false, amount: 0.2 });
 
   return (
-    <section ref={ref} className="min-h-screen w-full bg-[#68191E] relative overflow-hidden grid grid-cols-12 border-b-[16px] border-[#141414]">
+    <section id="lenin" ref={ref} className="min-h-screen w-full bg-[#68191E] relative overflow-hidden grid grid-cols-12 border-b-[16px] border-[#141414]">
       
       {/* 1. ЛЕВАЯ ПОЛОСА */}
       <div className="w-20 lg:w-28 bg-[#141414] flex items-center justify-center border-r-4 border-[#FFF4E4]/20 relative z-20">

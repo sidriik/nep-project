@@ -14,7 +14,7 @@ export default function ThirdSlide() {
   ];
 
   return (
-    <section ref={ref} className="min-h-screen w-full bg-[#141414] text-[#FFF4E4] relative overflow-hidden flex border-b-[16px] border-[#68191E]">
+    <section id = "crisis" ref={ref} className="min-h-screen w-full bg-[#141414] text-[#FFF4E4] relative overflow-hidden flex border-b-[16px] border-[#68191E]">
       
       {/* Левая полоса (Индикатор тревоги) */}
       <div className="w-20 lg:w-28 bg-[#68191E] flex items-center justify-center border-r-4 border-[#FFF4E4]/10 shrink-0 z-30">

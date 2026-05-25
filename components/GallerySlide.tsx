@@ -15,7 +15,7 @@ export default function GallerySlide() {
   const [index, setIndex] = useState(0);
 
   return (
-    <section className="min-h-screen w-full bg-[#141414] text-[#FFF4E4] relative overflow-hidden flex flex-col p-6 lg:p-20 border-b-[16px] border-[#141414]">
+    <section id = "gallery" className="min-h-screen w-full bg-[#141414] text-[#FFF4E4] relative overflow-hidden flex flex-col p-6 lg:p-20 border-b-[16px] border-[#141414]">
       
       <div className="flex justify-between items-end mb-12 border-b-4 border-[#68191E] pb-6">
         <div>

@@ -8,7 +8,7 @@ export default function Hero() {
   const duration = 8; 
 
   return (
-    <section className="min-h-screen w-full flex overflow-hidden relative border-b-[16px] border-[#141414] bg-[#FFF4E4]">
+    <section id="hero" className="min-h-screen w-full flex overflow-hidden relative border-b-[16px] border-[#141414] bg-[#FFF4E4]">
       
       {/* 1. ЛЕВАЯ ПОЛОСА — Фиксированная ширина 100px (как на всем сайте) */}
       <div className="w-20 lg:w-28 bg-[#68191E] flex items-center justify-center border-r-4 border-[#141414] relative z-20 shrink-0">
@@ -25,10 +25,6 @@ export default function Hero() {
            <div className="flex flex-col gap-1">
              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#68191E]">Исследовательский проект</span>
              <span className="text-[10px] font-bold uppercase tracking-widest opacity-40">Module IV / History</span>
-           </div>
-           <div className="flex items-center gap-6">
-              <div className="w-12 h-12 border-[3px] border-[#141414] rounded-full flex items-center justify-center font-black">№04</div>
-              <Plus size={32} strokeWidth={1} className="text-[#68191E]" />
            </div>
         </div>
 

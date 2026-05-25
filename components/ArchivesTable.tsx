@@ -16,7 +16,7 @@ export default function ArchivesTable() {
   const current = dossiers.find(d => d.id === openId);
 
   return (
-    <section className="min-h-screen w-full bg-[#1e231f] flex border-b-[16px] border-[#141414] relative overflow-hidden">
+    <section id = "archives" className="min-h-screen w-full bg-[#1e231f] flex border-b-[16px] border-[#141414] relative overflow-hidden">
       {/* ЭФФЕКТ ЗЕЛЕНОГО СУКНА СТОЛА */}
       <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/dark-leather.png')] pointer-events-none" />
       <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.8)] pointer-events-none" />
