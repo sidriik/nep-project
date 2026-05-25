@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --nep-red: #68191E;
+  --nep-black: #141414;
+  --nep-paper: #FFF4E4;
+  --nep-gray: #E3E3E3;
+}
+
+body {
+  background-color: var(--nep-paper);
+  color: var(--nep-black);
+  cursor: crosshair; /* Сделаем курсор в виде перекрестия, как в чертежах */
+}
+
+/* Эффект старой бумаги с вкраплениями */
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.4;
+  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+}
+
+/* Кастомный скроллбар в стиле конструктивизма */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--nep-paper); }
+::-webkit-scrollbar-thumb { background: var(--nep-red); border: 2px solid var(--nep-black); }
+
+/* Анимация появления как в журнале */
+@keyframes reveal {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+.reveal { animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1); }
