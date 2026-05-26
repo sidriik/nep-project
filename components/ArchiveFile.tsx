@@ -15,7 +15,7 @@ export default function DocumentsArchive() {
   return (
     <section id = "sources" className="min-h-screen w-full bg-[#141414] flex border-b-[16px] border-[#68191E] relative">
       <div className="w-20 lg:w-28 bg-[#FFF4E4] flex items-center justify-center border-r-4 border-[#141414] shrink-0 z-30">
-        <h2 className="rotate-180 text-[#141414] font-black text-4xl lg:text-5xl tracking-tighter [writing-mode:vertical-lr] uppercase italic">RESEARCH</h2>
+        <h2 className="rotate-180 text-[#141414] font-black text-4xl lg:text-5xl tracking-tighter [writing-mode:vertical-lr] uppercase italic">ИССЛЕДОВАНИЕ</h2>
       </div>
 
       <div className="flex-1 p-6 lg:p-20 flex flex-col justify-center overflow-y-auto">
@@ -28,7 +28,7 @@ export default function DocumentsArchive() {
             </h2>
             
             <p className="text-[#FFF4E4]/70 text-xl italic border-l-4 border-[#68191E] pl-6 max-w-lg">
-              «В данной работе проведен комплексный анализ архивных документов РГАЭ и периодической печати 1920-х годов, раскрывающий противоречия перехода к рынку».
+              «В данной работе проведен комплексный анализ архивных документов и периодической печати 1920-х годов, раскрывающий противоречия перехода к рынку».
             </p>
 
             {/* КНОПКА СКАЧИВАНИЯ */}
